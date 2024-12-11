@@ -1,0 +1,17 @@
+L1 = [0]*3
+machaine = str('Ma chaine')
+
+for i in L1:
+    print(f"{i} {type(i)}")
+    print(id(i))
+
+L1[1] = int(input("Entrez une nouvelle valeurs : "))
+print(id(L1[1]))
+
+for i in L1:
+    print(f"{i} {type(i)}")
+    print(id(i))
+
+for j in machaine:
+    print(f"{j} {type(j)}")
+    print(id(j))
