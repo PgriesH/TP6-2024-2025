@@ -1,0 +1,31 @@
+import random
+
+# Fonction generer(nbr, vmin, vmax) pour générer un tableau de 'nbr' valeurs comprises entre 'vmin' et 'vmax'
+def generer(nbr, vmin, vmax):
+    return [random.randint(vmin, vmax) for _ in range(nbr)]
+
+# Fonction combienInferieur(table, vseuil) pour compter le nombre de valeurs d'un tableau 'table' inférieures à la valeur 'vseuil'
+def combienInferieur(table, vseuil):
+    return sum(1 for x in table if x < vseuil)
+
+# Demander à l'utilisateur de préciser les paramètres
+nb = int(input("Entrez le nombre de valeurs à générer : "))
+vmin = int(input("Entrez la valeur minimale : "))
+vmax = int(input("Entrez la valeur maximale : "))
+
+# Générer le tableau
+print(f"Générer {nb} nombres entiers entre {vmin} et {vmax}")
+tab = generer(nb, vmin, vmax)
+tab.sort()
+print(tab)
+
+# Demander à l'utilisateur s'il veut préciser le seuil
+reponse = input("Vous voulez préciser le seuil ? (Oui/O/N/Non) : ").strip().lower()
+if reponse in ['oui', 'o']:
+    vseuil = int(input("Entrez la valeur du seuil : "))
+else:
+    vseuil = 30
+
+# Compter les valeurs inférieures au seuil
+total = combienInferieur(tab, vseuil)
+print(f"Il y en a {total} inférieurs à {vseuil}")
